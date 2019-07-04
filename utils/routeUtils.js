@@ -123,8 +123,8 @@ let createSwaggerUIForRoutes = (app, routes = []) => {
 
 /**
  * Assign authentication function
- * @param middleware
- * @param authType
+ * @param middlewares
+ * @param route
  * @returns {Promise<void>}
  */
 const assignUserAuth = async (middlewares, route) => {

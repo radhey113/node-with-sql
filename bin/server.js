@@ -58,7 +58,8 @@ let startNodeserver = () => {
 
 module.exports = () => {
     connectDb()
-        .then(() => {
+        .then(async () => {
+            await startNodeserver();
             console.log(`Node server running on ${CONFIG.SERVER_CONFIG.HOST}:${CONFIG.SERVER_CONFIG.PORT}`);
         }).catch((err) => {
             console.log(`Error in starting server ${err}`);

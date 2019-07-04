@@ -21,7 +21,13 @@ let userController = {};
 /**function to register an user to the system. **/
 userController.registerUser = (body) => {
     return new Promise((resolve, reject) => {
+        return User.create({
+            name: body.name
+        }).then(result => {
 
+        }).catch(error => {
+            throw error;
+        })
         // signUp(body).then(user => {
         //     delete user.signUpType;
         //     resolve(RESPONSEMESSAGES.SUCCESS.MISSCELANEOUSAPI(MESSAGES.REGISTERED_SUCCESSFULLY, user));

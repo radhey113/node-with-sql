@@ -14,7 +14,7 @@ let SERVER_CONFIG = {
         USER: "",
         PASSWORD: "",
     },
-    HOST: "0.0.0.0",
+    HOST: "192.168.2.56",
     TYPE: "http://",
     PORT: process.env.SERVER_PORT || '2200'
 };
