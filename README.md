@@ -1,6 +1,6 @@
 # Express with SQL (Sequelize)
 
-##Pre-requisition 
+## Pre-requisition 
 
 - Install Sequilize-cli 
    ```
@@ -12,7 +12,7 @@
         npm install --save sequelize
    ```
 
-##Run Locally
+## Run Locally
 - Start SQL Server with phpmyadmin
 - Create your database and replace the name from the config.json file inside config folder
 - Migrate your tables from migrations folder to database by using command:
