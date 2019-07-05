@@ -17,7 +17,7 @@ let saltRounds = SERVER.BCRYPT_SALT;
  * @param {*} userPassword
  * @param {*} cb
  */
-let encryptPswrd = (userPassword) => {
+let encryptPswrd = userPassword => {
     let salt = BCRYPT.genSaltSync(saltRounds);
     let encryptedPassword = BCRYPT.hashSync(userPassword, salt);
     return encryptedPassword;

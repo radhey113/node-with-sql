@@ -4,9 +4,6 @@
  **** node module defined here *****
  ***********************************/
 const EXPRESS = require("express");
-const Mongoose = require('mongoose');
-Mongoose.Promise = require('bluebird');
-
 const routes = require('../routes');
 const CONFIG = require("../config");
 const { messageLogs } = require('../utils/utils');
@@ -59,6 +56,7 @@ let startNodeserver = () => {
 module.exports = () => {
     connectDb()
         .then(async () => {
+            await routeUtils.route(app, routes);
             await startNodeserver();
             console.log(`Node server running on ${CONFIG.SERVER_CONFIG.HOST}:${CONFIG.SERVER_CONFIG.PORT}`);
         }).catch((err) => {

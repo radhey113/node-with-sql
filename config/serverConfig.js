@@ -4,16 +4,6 @@
  ****** Default Server configuration ******
  ******************************************/
 let SERVER_CONFIG = {
-    MONGODB: {
-        HOST: "127.0.0.1",
-        PORT: 27017,
-        NAME: "mongodb",
-        CONNECTOR: "mongodb",
-        URL: process.env.DB_URL || "mongodb://127.0.0.1/demo_dev",
-        DATABASE: "demo_dev",
-        USER: "",
-        PASSWORD: "",
-    },
     HOST: "192.168.2.56",
     TYPE: "http://",
     PORT: process.env.SERVER_PORT || '2200'
