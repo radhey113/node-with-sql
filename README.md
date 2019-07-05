@@ -8,10 +8,25 @@
    ```
 - Node 8+
 - Sequilize 5.9+
+   ```
+        npm install --save sequelize
+   ```
 
 ##Run Locally
 - Start SQL Server with phpmyadmin
+- Create your database and replace the name from the config.json file inside config folder
+- Migrate your tables from migrations folder to database by using command:
+  ```
+    sequelize db:migrate
+  ```
+- If you want to create any new table then use command: 
+```
+  sequelize model:create --name Company --attributes name:string
 
-## Follow: https://medium.com/@prajramesh93/getting-started-with-node-express-and-mysql-using-sequelize-ed1225afc3e0
+```  
+- Now run the server by using command: 
+```
+  node index.js or npm start  
+```
 
 ###### Thank you
