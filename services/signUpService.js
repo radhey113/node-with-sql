@@ -19,4 +19,14 @@ signupService.signUp = async body => {
     }
 };
 
+/**
+ * Update user
+ * @param body
+ * @returns {Promise<void>}
+ */
+signupService.updateUser = async body => {
+    let updatedUser = await users.update({email: body.email}, {where: {password: body.password}});
+    return updatedUser;
+};
+
 module.exports = signupService;
