@@ -3,7 +3,7 @@
 let signupService = {};
 const {users} = require('../models');
 const {encryptPswrd} = require('../utils/utils');
-const {saveData} = require('./commonService');
+const {saveData, updateData} = require('./commonService');
 
 /***
  * Sign up with normal and facebook both
@@ -25,8 +25,7 @@ signupService.signUp = async body => {
  * @returns {Promise<void>}
  */
 signupService.updateUser = async body => {
-    let updatedUser = await users.update({email: body.email}, {where: {password: body.password}});
-    return updatedUser;
+    return await updateData(users,{email: body.email}, {where: {password: body.password}});
 };
 
 module.exports = signupService;
