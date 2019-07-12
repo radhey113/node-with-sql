@@ -2,8 +2,8 @@
 
 /** modules **/
 const swaggerUI = require('swagger-ui-express');
-const swaggerConfig = require('../config/swaggerConfig');
-const swJson = require('../services/swaggerService');
+const swaggerConfig = require('../config/swagger-config');
+const swJson = require('../services/swagger-service');
 const Joi = require('joi');
 
 const CONFIG = require('../config');
@@ -17,9 +17,9 @@ const {convertErrorIntoReadableForm} = require('./utils');
 const {
     userAuthentication, adminAuthentication,
     userAuthentication1, userAuthentication2
-} = require('../services/authService');
+} = require('../services/auth-service');
 
-const {uploadFile, readCSV} = require('../services/fileUploadService');
+const {uploadFile, readCSV} = require('../services/file-upload-service');
 
 let routeUtils = {};
 

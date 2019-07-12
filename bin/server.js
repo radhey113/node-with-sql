@@ -7,9 +7,9 @@ const EXPRESS = require("express");
 const routes = require('../routes');
 const CONFIG = require("../config");
 const { messageLogs } = require('../utils/utils');
-const routeUtils = require('../utils/routeUtils');
-const { startCron } = require('../services/cronService');
-const { connectDb } = require('../services/dbConnection');
+const routeUtils = require('../utils/route-utils');
+const { startCron } = require('../services/cron-service');
+const { connectDb } = require('../services/db-connection');
 
 /**creating express server app for server */
 const app = EXPRESS();

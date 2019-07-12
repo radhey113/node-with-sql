@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require('joi');
-const { success} = require('../../utils/responseMsg');
+const { success} = require('../../utils/response-msg');
 const { convertErrorIntoReadableForm } = require('../../utils/utils');
 
 const {

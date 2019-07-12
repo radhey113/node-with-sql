@@ -1,6 +1,6 @@
 const fs = require('fs');
 const joi = require('joi');
-const swaggerJson = require('../config/swaggerServiceConfig');
+const swaggerJson = require('../config/swagger-service-config');
 const j2s = require('joi-to-swagger');
 let singleton = undefined;
 

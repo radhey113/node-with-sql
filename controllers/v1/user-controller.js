@@ -1,7 +1,7 @@
 'use strict';
 
 const {RESPONSEMESSAGES, MESSAGES, SERVER} = require("../../utils/constants");
-const {signUp, signIn} = require('../../services/signUpService');
+const {signUp, signIn} = require('../../services/signup-service');
 const YES = SERVER.YES, NOT = SERVER.NOT;
 
 /**************************************************

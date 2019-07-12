@@ -4,8 +4,8 @@ let signupService = {};
 const {users} = require('../models');
 const {encryptPswrd, decryptPswrd, generateJWTToken} = require('../utils/utils');
 const {RESPONSEMESSAGES, MESSAGES} = require('../utils/constants');
-const {saveData, updateData, getOneRow} = require('./commonService');
-const {UserResponse} = require('../response_classes/Users');
+const {saveData, updateData, getOneRow} = require('./common-service');
+const {UserResponse} = require('../response-classes/users');
 
 /***
  * Sign up with normal and facebook both
