@@ -111,7 +111,6 @@ let getHandlerMethod = (handler, fileUpload) => {
  */
 let createSwaggerUIForRoutes = (app, routes = []) => {
     const host = CONFIG.SERVER_CONFIG.HOST + ':' + CONFIG.SERVER_CONFIG.PORT;
-    console.log('Host: ', host);
     const swaggerBasePath = '/';
     swJson.swaggerDoc.createJsonDoc(swaggerConfig, host, swaggerBasePath);
     routes.forEach(route => {

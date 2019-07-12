@@ -23,5 +23,15 @@ commonService.updateData = async (Model, dataToUpdate, criteria) => {
     return await Model.update(dataToUpdate, criteria);
 };
 
+/**
+ * Get one row
+ * @param Model
+ * @param criteria
+ * @returns {Promise<void>}
+ */
+commonService.getOneRow = async (Model, criteria) => {
+    return await Model.findOne(criteria);
+};
+
 
 module.exports = commonService;

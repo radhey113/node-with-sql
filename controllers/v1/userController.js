@@ -1,7 +1,7 @@
 'use strict';
 
 const {RESPONSEMESSAGES, MESSAGES, SERVER} = require("../../utils/constants");
-const {signUp} = require('../../services/signUpService');
+const {signUp, signIn} = require('../../services/signUpService');
 const YES = SERVER.YES, NOT = SERVER.NOT;
 
 /**************************************************
@@ -20,9 +20,9 @@ userController.registerUser = async body => {
 };
 
 /**function to register an user to the system. **/
-userController.registerUser = async body => {
+userController.login = async body => {
     try {
-        let returnData = await signUp(body);
+        let returnData = await signIn(body);
         return RESPONSEMESSAGES.SUCCESS.MISSCELANEOUSAPI(MESSAGES.DEFAULT_SUCCESS, returnData);
     } catch(error) {
         throw error;
