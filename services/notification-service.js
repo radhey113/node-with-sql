@@ -8,10 +8,11 @@ const fcm = new FCM(SERVER.PUSH_NOTIFICATION_SERVER_KEY);
 
 /**
  * One to one notification service
+ * @param deviceToken
  * @param data
  * @returns {boolean}
  */
-notificationService.oneToOne = async (deviceToken, data) => {
+notificationService.oneToMany = async (deviceToken, data) => {
     let message = {
         registration_ids: deviceToken,
         notification: {
@@ -29,6 +30,7 @@ notificationService.oneToOne = async (deviceToken, data) => {
 
 /**
  * One to many notification
+ * @param deviceToken
  * @param data
  * @returns {boolean}
  */

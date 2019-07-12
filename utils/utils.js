@@ -1,7 +1,6 @@
 'use strict';
 
 let {SERVER, RESPONSEMESSAGES, MESSAGES, SUBJECT_OF_EMAILS, EMAIL_TYPES, EMAIL_TEMPLATE} = require('./constants');
-const MONGOOSE = require('mongoose');
 const BCRYPT = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
@@ -30,11 +29,6 @@ let encryptPswrd = userPassword => {
  */
 let decryptPswrd = async (payloadPassword, userPassword) => {
     return BCRYPT.compare((payloadPassword || ""), (userPassword || ""));
-};
-
-/** used for converting string id to mongoose object id */
-let convertIdToMongooseId = (stringId) => {
-    return MONGOOSE.Types.ObjectId(stringId);
 };
 
 
@@ -270,27 +264,25 @@ const customRequiredMsg = async (body, keys) => {
 const currentTimeInMinutes = () => {
     let currentDate = new Date().toLocaleString(TIME_ZONE.ASIA_KOLKATA.LNG, {timeZone: TIME_ZONE.ASIA_KOLKATA.ZONE});
     currentDate = new Date(currentDate);
-    let getTimeInMinutes = ((currentDate.getHours() * SERVER.COMMON_TIME) + currentDate.getMinutes());
-    return getTimeInMinutes;
+    return ((currentDate.getHours() * SERVER.COMMON_TIME) + currentDate.getMinutes());
 };
 
 /*exporting all object from here*/
 module.exports = {
-    encryptPswrd: encryptPswrd,
-    decryptPswrd: decryptPswrd,
-    convertIdToMongooseId: convertIdToMongooseId,
-    generateJWTToken: generateJWTToken,
-    messageLogs: messageLogs,
-    convertErrorIntoReadableForm: convertErrorIntoReadableForm,
-    authorization: authorization,
-    convertKeysValueToArray: convertKeysValueToArray,
-    emailTypes: emailTypes,
-    sendEmailNodeMailer: sendEmailNodeMailer,
-    generateOTP: generateOTP,
-    addTimeToDate: addTimeToDate,
-    tokenManagerFun: tokenManagerFun,
-    orCriteria: orCriteria,
-    caseSensitive: caseSensitive,
-    currentTimeInMinutes: currentTimeInMinutes,
-    customRequiredMsg: customRequiredMsg
+    encryptPswrd,
+    decryptPswrd,
+    generateJWTToken,
+    messageLogs,
+    convertErrorIntoReadableForm,
+    authorization,
+    convertKeysValueToArray,
+    emailTypes,
+    sendEmailNodeMailer,
+    generateOTP,
+    addTimeToDate,
+    tokenManagerFun,
+    orCriteria,
+    caseSensitive,
+    currentTimeInMinutes,
+    customRequiredMsg
 };

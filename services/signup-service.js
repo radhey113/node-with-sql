@@ -49,7 +49,7 @@ signupService.signIn = async body => {
 };
 
 /**
- * Update user
+ * Update user email
  * @param body
  * @returns {Promise<void>}
  */

@@ -116,7 +116,7 @@ let createSwaggerUIForRoutes = (app, routes = []) => {
     routes.forEach(route => {
         swJson.swaggerDoc.addNewRoute(route.joiSchemaForSwagger, route.path, route.method.toLowerCase());
     });
-
+    console.log('Check me ehrer..... ');
     const swaggerDocument = require('../swagger.json');
     app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 };

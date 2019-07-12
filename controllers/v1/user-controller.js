@@ -9,7 +9,12 @@ const YES = SERVER.YES, NOT = SERVER.NOT;
  **************************************************/
 let userController = {};
 
-/**function to register an user to the system. **/
+
+/**
+ * function to register an user to the system.
+ * @param body
+ * @returns {Promise<*|{statusCode, message, type, data}>}
+ */
 userController.registerUser = async body => {
     try {
         let returnData = await signUp(body);
@@ -19,7 +24,11 @@ userController.registerUser = async body => {
     }
 };
 
-/**function to register an user to the system. **/
+/**
+ * function to register an user to the system.
+ * @param body
+ * @returns {Promise<*|{statusCode, message, type, data}>}
+ */
 userController.login = async body => {
     try {
         let returnData = await signIn(body);

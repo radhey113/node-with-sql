@@ -1,4 +1,11 @@
 'use strict';
+
+/**
+ * User model
+ * @param sequelize
+ * @param DataTypes
+ * @returns {never|Model|*|void}
+ */
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('users', {
       id: {

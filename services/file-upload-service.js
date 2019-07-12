@@ -2,7 +2,6 @@
 
 const fs = require(`fs`);
 const multer = require(`multer`);
-const async_npm = require(`async`);
 const Path = require(`path`);
 const AWS = require(`aws-sdk`);
 const mime = require(`mime-types`);
@@ -22,7 +21,6 @@ let fileUploadService = {};
 
 /**
  * Storage for file in local machine
- * @type {DiskStorage|DiskStorage}
  */
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -43,7 +41,8 @@ const upload = multer({storage: storage}).single('file');
 
 /**
  * Upload file
- * @param {*} file
+ * @param {*} request
+ * @param {*} response
  */
 fileUploadService.uploadFile = async (request, response) => {
     return new Promise(async (resolve, reject) => {
@@ -82,18 +81,24 @@ fileUploadService.uploadFile = async (request, response) => {
 };
 
 
-/** Create image **/
+/***
+ * Create image thumb
+ * @param originalPath
+ * @param thumbnailPath
+ * @returns {Promise<*>}
+ */
 fileUploadService.createThumbImage = async (originalPath, thumbnailPath) => {
     return new Promise((resolve, reject) => {
 
-        var readStream = fs.createReadStream(originalPath);
+        let readStream = fs.createReadStream(originalPath);
+        let imageQuality = 30;
         gm(readStream)
             .size({bufferStream: true}, function (err, size) {
                 console.log(`GM Error: ${JSON.stringify(err)}`);
                 if (size) {
                     let height = 150;
                     let width = (size.width * height) / size.height;
-                    this.thumb(width, height, thumbnailPath, 30,
+                    this.thumb(width, height, thumbnailPath, imageQuality,
                         /* .autoOrient()
                         .write(thumbnailPath1,*/ function (err, data) {
                             console.log(`GM Error: ${JSON.stringify(err)}`);
@@ -111,7 +116,12 @@ fileUploadService.deleteFile = (path) => {
 };
 
 
-/** Upload image to s3 bucket **/
+/**
+ * Upload image to s3 bucket
+ * @param fileObj
+ * @param index
+ * @returns {Promise<*>}
+ */
 fileUploadService.uploadFileS3 = async (fileObj, index) => {
     return new Promise((resolve, reject) => {
         const fileName = Path.basename(fileObj.finalUrl);

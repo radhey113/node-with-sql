@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const connection = {};
 
 /**
- * Connect database
+ * Connect mysql database
  * @returns {Promise<void>}
  */
 connection.connectDb = async () => {

@@ -1,5 +1,5 @@
 {
-  "name": "demo_with_new_swagger",
+  "name": "Demo with new swagger",
   "version": "1.0.0",
   "description": "Demo with new swagger",
   "main": "server.js",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "jsdoc": "^3.6.2",
     "mocha": "^5.2.0",
     "request": "^2.88.0"
   }

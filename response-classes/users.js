@@ -1,3 +1,8 @@
+'use strict';
+
+/**
+ * User response class
+ */
 class UserResponse {
     constructor({ id = '', name = '', email = '', accessToken = '' }) {
         this.id = id;
